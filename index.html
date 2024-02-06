@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Library</h1>
+            <button class="btn-dark btn-round">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                    <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                  </svg>
+            </button>
+        </header>
+        <main>
+            <div class="book-cards-wrapper">
+                <div class="book-card">
+                    <div class="book-primary-info">
+                        <p class="book-title">The Hobbit</p>
+                        <p class="book-author">J.R.R.Tolkien</p>
+                    </div>
+                    <div class="book-secondary-info">
+                        <p class="book-pages">292 pages</p>
+                        <p class="book-status">not read yet</p>
+                    </div>
+                    <button class="btn-round">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-xbox-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
+                            <path d="M9 8l6 8" />
+                            <path d="M15 8l-6 8" />
+                          </svg>
+                    </button>
+                </div>
+                <div class="book-card">
+                    <div class="book-primary-info">
+                        <p class="book-title">Harry Potter and the Prisoner of Azkaban</p>
+                        <p class="book-author">J.K.Rowling</p>
+                    </div>
+                    <div class="book-secondary-info">
+                        <p class="book-pages">317 pages</p>
+                        <p class="book-status">read</p>
+                    </div>
+                    <button class="btn-round">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-xbox-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
+                            <path d="M9 8l6 8" />
+                            <path d="M15 8l-6 8" />
+                          </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <dialog id="dialog">
+            <form method="dialog">
+                <button class="btn-round close-dialog" formnovalidate>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-xbox-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
+                        <path d="M9 8l6 8" />
+                        <path d="M15 8l-6 8" />
+                      </svg>
+                </button>
+                <div class="text-input">
+                    <label class="text-input-label" for="title">Title</label>
+                    <input type="text" name="title" id="title" required>    
+                </div>
+                <div class="text-input">
+                    <label class="text-input-label" for="author">Author</label>
+                    <input type="text" name="author" id="author" required>
+                </div>
+                <div class="text-input">
+                    <label class="text-input-label" for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" required>  
+                </div>
+                
+                <div class="radio-buttons">
+                    <p>Have you read this book?</p>
+                    <div class="radio-buttons-input">
+                        <input type="radio" name="is_read" id="book-read" value="book_read" required>
+                        <label for="book-read">Yes</label>
+                        <input type="radio" name="is_read" id="book-not-read" value="book_not_read" required>
+                        <label for="book-not-read">No</label>      
+                    </div>
+                </div>
+                <input type="submit" id="add-book" value="Add Book" />
+            </form>
+        </dialog>
+
+        <button class="btn-dark btn-add" id="show-dialog">
+            Add Book
+        </button>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
