@@ -7,8 +7,11 @@
 
 /* colors */
 
-    --clr-primary-light: hsl(32, 100%, 97%);
-    --clr-primary-dark: hsl(193, 100%, 16%);
+    --clr-light: hsl(32, 100%, 97%);
+    --clr-dark: hsl(193, 100%, 16%);
+
+    --clr-primary: var(--clr-light);
+    --clr-secondary: var(--clr-dark);
 
     --clr-accent: hsl(5, 90%, 65%);
 
@@ -24,6 +27,11 @@
     --fs-700: 3rem;
     --fs-900: 4rem;
 
+}
+
+.dark-mode {
+    --clr-primary: var(--clr-dark);
+    --clr-secondary: var(--clr-light);
 }
 
 /* makes sizing simpler */
@@ -97,8 +105,8 @@ button {
 /* STYLING */
 
 body {
-    background: var(--clr-primary-light);
-    color: var(--clr-primary-dark);
+    background: var(--clr-primary);
+    color: var(--clr-secondary);
     font-family: var(--ff-primary);
     font-size: var(--fs-400);
   }
@@ -146,19 +154,19 @@ header > h1 {
 }
 
 .btn-dark {
-    background: var(--clr-primary-dark);
-    color: var(--clr-primary-light);
+    background: var(--clr-secondary);
+    color: var(--clr-primary);
     border: 2px solid transparent;
 }
 
 .btn-dark:hover {
-    background: var(--clr-primary-light);
-    color: var(--clr-primary-dark);
-    border: 2px solid var(--clr-primary-dark);
+    background: var(--clr-primary);
+    color: var(--clr-secondary);
+    border: 2px solid var(--clr-secondary);
 }
 
 .icon-tabler-xbox-x {
-    stroke: var(--clr-primary-dark);
+    stroke: var(--clr-secondary);
 }
 
 .icon-tabler-xbox-x:hover,
@@ -185,7 +193,8 @@ dialog {
     border-radius: 1rem;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     padding: 1.5rem 2rem;
-    background-color: var(--clr-primary-light);
+    background-color: var(--clr-primary);
+    color: var(--clr-secondary);
     text-align: center;
     margin: auto;
 }
@@ -221,7 +230,7 @@ input[type=text],
 input[type=number] {
     background: none;
     color: inherit;
-    border: 1px solid var(--clr-accent);
+    border: 2px solid var(--clr-accent);
     border-radius: 100vh;
     margin-top: 0.5rem;
     padding: 0.5rem 1rem;
@@ -230,11 +239,11 @@ input[type=number] {
 input[type=radio] {
     appearance: none;
     cursor: pointer;
-    background-color: var(--clr-primary-light);
+    background-color: var(--clr-primary);
     height: 1.5rem;
     width: 1.5rem;
 
-    border: 1px solid var(--clr-accent);
+    border: 2px solid var(--clr-accent);
     border-radius: 50%;
 
     position: relative;
@@ -254,16 +263,16 @@ input[type=submit] {
     justify-content: center;
     text-transform: uppercase;
     padding: .75em 1.25em;
-    background: var(--clr-primary-dark);
-    color: var(--clr-primary-light);
+    background: var(--clr-secondary);
+    color: var(--clr-primary);
     border: 2px solid transparent;
 }
 
 input[type=submit]:hover,
 input[type=submit]:focus-visible {
-    background: var(--clr-primary-light);
-    color: var(--clr-primary-dark);
-    border: 2px solid var(--clr-primary-dark);
+    background: var(--clr-primary);
+    color: var(--clr-secondary);
+    border: 2px solid var(--clr-secondary);
 }
 
 /* Media queries */
@@ -281,9 +290,9 @@ input[type=submit]:focus-visible {
         height: var(--fs-700);
     }
 
-    .icon-tabler-sun {
-        width: 32px;
-        height: 32px;
+    .icon-tabler-circle-half-2 {
+        width: 36px;
+        height: 36px;
         stroke-width: 1.5;
     }
 

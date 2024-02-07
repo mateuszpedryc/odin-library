@@ -138,3 +138,32 @@ bookCardsWrapper.addEventListener("click", function(e) {
         return;
     };
 });
+
+//Toggle dark-mode
+let darkMode = localStorage.getItem('darkMode');
+const modeToggleButton = document.getElementById("btn-mode-select");
+const documentBody = document.body;
+
+function enableDarkMode() {
+    documentBody.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled');
+};
+
+function disableDarkMode() {
+    documentBody.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', null);
+};
+
+if (darkMode === 'enabled') {
+    enableDarkMode();
+};
+
+modeToggleButton.addEventListener('click', () => {
+    darkMode = localStorage.getItem('darkMode');
+
+    if (darkMode !== 'enabled') {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    };
+});
