@@ -151,8 +151,7 @@ header > h1 {
     border: 2px solid transparent;
 }
 
-.btn-dark:hover,
-.btn-dark:focus-visible {
+.btn-dark:hover {
     background: var(--clr-primary-light);
     color: var(--clr-primary-dark);
     border: 2px solid var(--clr-primary-dark);
