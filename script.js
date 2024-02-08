@@ -36,8 +36,8 @@ addBook.addEventListener('click', (e) => {
 
     createBookCard(bookTitle.value, bookAuthor.value, bookPages.value, bookStatus, dataIndex);
 
-    console.log(myLibrary);
-    console.log(dataIndex);
+    // console.log(myLibrary);
+    // console.log(dataIndex);
 });
 
 // Function to update DOM
@@ -126,13 +126,19 @@ addButton.addEventListener("click", () => {
 });
 
 // Function to delete book card and remove from array
-bookCardsWrapper.addEventListener("click", function(e) {
+bookCardsWrapper.addEventListener("click", (e) => {
     const target = e.target.closest("#delete-button");
+    const targets = document.getElementsByClassName('book-card');
 
     if (target) {
         const targetCard = target.parentNode;
         targetCard.remove();
         myLibrary.splice(targetCard.dataset.index, 1);
+        console.log(myLibrary);
+        console.log(targets);
+        console.log(Array.from(targets));
+        Array.from(targets).forEach((element) => console.log(element));
+        Array.from(targets).forEach((element) => element.dataset.index = Array.from(targets).indexOf(element)); 
         console.log(myLibrary);
     } else {
         return;

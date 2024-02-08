@@ -9,9 +9,12 @@
 
     --clr-light: hsl(32, 100%, 97%);
     --clr-dark: hsl(193, 100%, 16%);
+    --clr-light-hover: hsl(32,100%, 94%);
+    --clr-dark-hover: hsl(193,100%,14%);
 
     --clr-primary: var(--clr-light);
     --clr-secondary: var(--clr-dark);
+    --clr-hover: var(--clr-light-hover);
 
     --clr-accent: hsl(5, 90%, 65%);
 
@@ -32,6 +35,7 @@
 .dark-mode {
     --clr-primary: var(--clr-dark);
     --clr-secondary: var(--clr-light);
+    --clr-hover: var(--clr-dark-hover);
 }
 
 /* makes sizing simpler */
@@ -145,6 +149,10 @@ header > h1 {
     border-bottom: 1px solid var(--clr-accent);
 }
 
+.book-card:hover,
+.book-card:focus-visible {
+    background-color: var(--clr-hover);
+}
 
 .book-primary-info,
 .book-secondary-info {
