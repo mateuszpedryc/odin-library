@@ -142,8 +142,8 @@ header > h1 {
 
 .book-card {
     display: grid;
-    grid-template-columns: 2fr 1fr auto;
-    gap: 2rem;
+    grid-template-columns: 2fr 1fr auto auto;
+    /* gap: 2rem; */
     align-items: center;
     padding: 1rem .5rem;
     border-bottom: 1px solid var(--clr-accent);
@@ -173,12 +173,15 @@ header > h1 {
     border: 2px solid var(--clr-secondary);
 }
 
-.icon-tabler-xbox-x {
+.icon-tabler-xbox-x,
+.icon-tabler-edit {
     stroke: var(--clr-secondary);
 }
 
 .icon-tabler-xbox-x:hover,
-.icon-tabler-xbox-x:focus-visible {
+.icon-tabler-xbox-x:focus-visible,
+.icon-tabler-edit:hover,
+.icon-tabler-edit:focus-visible {
     stroke: var(--clr-accent);
 }
 
@@ -304,7 +307,8 @@ input[type=submit]:focus-visible {
         stroke-width: 1.5;
     }
 
-    .icon-tabler-xbox-x {
+    .icon-tabler-xbox-x,
+    .icon.icon-tabler-edit {
         width: 32px;
         height: 32px;
     }
@@ -315,5 +319,6 @@ input[type=submit]:focus-visible {
         grid-template-columns: 2fr 1fr;
         gap: 3rem;
         align-items: center;
+        margin-right: 1rem;
     }
 }

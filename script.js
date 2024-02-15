@@ -2,6 +2,8 @@ const bookTitle = document.getElementById("title");
 const bookAuthor = document.getElementById("author");
 const bookPages = document.getElementById("pages");
 const radioButton = document.getElementsByName("is_read");
+const radioButtonRead = document.getElementById("book-read");
+const radioButtonNotRead = document.getElementById("book-not-read");
 const addBook = document.getElementById("add-book");
 const bookCardsWrapper = document.getElementById("cards-wrapper");
 const addButton = document.getElementById("show-dialog");
@@ -75,45 +77,75 @@ function createBookCard(title, author, pages, status, dataIndex) {
     deleteButton.classList.add('btn-round');
     deleteButton.setAttribute('id', 'delete-button');
 
+    const editButton = document.createElement('button');
+    editButton.classList.add('btn-round');
+    editButton.setAttribute('id', 'edit-button');
+
     const svgURI = 'http://www.w3.org/2000/svg';
 
-    const svgForButton = document.createElementNS(svgURI, 'svg');
-    svgForButton.setAttribute('class', 'icon icon-tabler icon-tabler-xbox-x');
-    svgForButton.setAttribute('width', '24');
-    svgForButton.setAttribute('height', '24');
-    svgForButton.setAttribute('viewBox', '0 0 24 24');
-    svgForButton.setAttribute('stroke-width', '1');
-    svgForButton.setAttribute('stroke', 'currentColor');
-    svgForButton.setAttribute('fill', 'none');
-    svgForButton.setAttribute('stroke-linecap', 'round');
-    svgForButton.setAttribute('stroke-linejoin', 'round');
-    
-    const svgPath1 = document.createElementNS(svgURI, 'path');
-    svgPath1.setAttribute('d', 'M0 0h24v24H0z');
-    svgPath1.setAttribute('fill', 'none');
-    svgPath1.setAttribute('stroke', 'none');
-    const svgPath2 = document.createElementNS(svgURI, 'path')
-    svgPath2.setAttribute('d', 'M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z');
-    const svgPath3 = document.createElementNS(svgURI, 'path')
-    svgPath3.setAttribute('d', 'M9 8l6 8');
-    const svgPath4 = document.createElementNS(svgURI, 'path')
-    svgPath4.setAttribute('d', 'M15 8l-6 8');
+    const svgForDeleteButton = document.createElementNS(svgURI, 'svg');
+    svgForDeleteButton.setAttribute('class', 'icon icon-tabler icon-tabler-xbox-x');
+    svgForDeleteButton.setAttribute('width', '24');
+    svgForDeleteButton.setAttribute('height', '24');
+    svgForDeleteButton.setAttribute('viewBox', '0 0 24 24');
+    svgForDeleteButton.setAttribute('stroke-width', '1');
+    svgForDeleteButton.setAttribute('stroke', 'currentColor');
+    svgForDeleteButton.setAttribute('fill', 'none');
+    svgForDeleteButton.setAttribute('stroke-linecap', 'round');
+    svgForDeleteButton.setAttribute('stroke-linejoin', 'round');
+    const svgDeletePath1 = document.createElementNS(svgURI, 'path');
+    svgDeletePath1.setAttribute('d', 'M0 0h24v24H0z');
+    svgDeletePath1.setAttribute('fill', 'none');
+    svgDeletePath1.setAttribute('stroke', 'none');
+    const svgDeletePath2 = document.createElementNS(svgURI, 'path')
+    svgDeletePath2.setAttribute('d', 'M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z');
+    const svgDeletePath3 = document.createElementNS(svgURI, 'path')
+    svgDeletePath3.setAttribute('d', 'M9 8l6 8');
+    const svgDeletePath4 = document.createElementNS(svgURI, 'path')
+    svgDeletePath4.setAttribute('d', 'M15 8l-6 8');
 
-    svgForButton.appendChild(svgPath1);
-    svgForButton.appendChild(svgPath2);
-    svgForButton.appendChild(svgPath3);
-    svgForButton.appendChild(svgPath4);
+    const svgForEditButton = document.createElementNS(svgURI, 'svg');
+    svgForEditButton.setAttribute('class', 'icon icon-tabler icon-tabler-edit');
+    svgForEditButton.setAttribute('width', '24');
+    svgForEditButton.setAttribute('height', '24');
+    svgForEditButton.setAttribute('viewBox', '0 0 24 24');
+    svgForEditButton.setAttribute('stroke-width', '1');
+    svgForEditButton.setAttribute('stroke', 'currentColor');
+    svgForEditButton.setAttribute('fill', 'none');
+    svgForEditButton.setAttribute('stroke-linecap', 'round');
+    svgForEditButton.setAttribute('stroke-linejoin', 'round');
+    const svgEditPath1 = document.createElementNS(svgURI, 'path');
+    svgEditPath1.setAttribute('d', 'M0 0h24v24H0z');
+    svgEditPath1.setAttribute('fill', 'none');
+    svgEditPath1.setAttribute('stroke', 'none');
+    const svgEditPath2 = document.createElementNS(svgURI, 'path')
+    svgEditPath2.setAttribute('d', 'M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1');
+    const svgEditPath3 = document.createElementNS(svgURI, 'path')
+    svgEditPath3.setAttribute('d', 'M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z');
+    const svgEditPath4 = document.createElementNS(svgURI, 'path')
+    svgEditPath4.setAttribute('d', 'M16 5l3 3');
 
-    deleteButton.appendChild(svgForButton);
+    svgForDeleteButton.appendChild(svgDeletePath1);
+    svgForDeleteButton.appendChild(svgDeletePath2);
+    svgForDeleteButton.appendChild(svgDeletePath3);
+    svgForDeleteButton.appendChild(svgDeletePath4);
+
+    svgForEditButton.appendChild(svgEditPath1);
+    svgForEditButton.appendChild(svgEditPath2);
+    svgForEditButton.appendChild(svgEditPath3);
+    svgForEditButton.appendChild(svgEditPath4);
+
+    deleteButton.appendChild(svgForDeleteButton);
+    editButton.appendChild(svgForEditButton);
 
     bookPrimaryInfo.appendChild(bookTitle);
     bookPrimaryInfo.appendChild(bookAuthor);
-
     bookSecondaryInfo.appendChild(bookPages);
     bookSecondaryInfo.appendChild(bookStatus);
 
     bookCard.appendChild(bookPrimaryInfo);
     bookCard.appendChild(bookSecondaryInfo);
+    bookCard.appendChild(editButton);
     bookCard.appendChild(deleteButton);
 
     bookCardsWrapper.appendChild(bookCard);
@@ -139,6 +171,32 @@ bookCardsWrapper.addEventListener("click", (e) => {
         console.log(Array.from(targets));
         Array.from(targets).forEach((element) => console.log(element));
         Array.from(targets).forEach((element) => element.dataset.index = Array.from(targets).indexOf(element)); 
+        console.log(myLibrary);
+    } else {
+        return;
+    };
+});
+
+//Function to edit book status and save changes to array
+bookCardsWrapper.addEventListener("click", (e) => {
+    const target = e.target.closest("#edit-button");
+    // const targets = document.getElementsByClassName('book-card');
+
+    if (target) {
+        const targetCard = target.parentNode;
+        const targetIndex = targetCard.dataset.index;
+
+        console.log((targetCard.children[1]).children[1].textContent);
+        console.log(targetIndex);
+
+        if ((targetCard.children[1]).children[1].textContent === 'Read') {
+            (targetCard.children[1]).children[1].textContent = 'Not read yet';
+            // myLibrary.find(x => x.id = targetCard.dataset.index).read = 'Not read yet';
+            myLibrary[targetIndex].read = 'Not read yet';
+        } else if((targetCard.children[1]).children[1].textContent === 'Not read yet'){
+            (targetCard.children[1]).children[1].textContent = 'Read';
+            myLibrary[targetIndex].read = 'Read';
+        };
         console.log(myLibrary);
     } else {
         return;
