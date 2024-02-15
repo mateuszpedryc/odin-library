@@ -149,11 +149,6 @@ header > h1 {
     border-bottom: 1px solid var(--clr-accent);
 }
 
-.book-card:hover,
-.book-card:focus-visible {
-    background-color: var(--clr-hover);
-}
-
 .book-primary-info,
 .book-secondary-info {
     display: flex;
@@ -167,22 +162,9 @@ header > h1 {
     border: 2px solid transparent;
 }
 
-.btn-dark:hover {
-    background: var(--clr-primary);
-    color: var(--clr-secondary);
-    border: 2px solid var(--clr-secondary);
-}
-
 .icon-tabler-xbox-x,
 .icon-tabler-edit {
     stroke: var(--clr-secondary);
-}
-
-.icon-tabler-xbox-x:hover,
-.icon-tabler-xbox-x:focus-visible,
-.icon-tabler-edit:hover,
-.icon-tabler-edit:focus-visible {
-    stroke: var(--clr-accent);
 }
 
 .btn-round {
@@ -236,7 +218,6 @@ form {
     right: 0;
 }
 
-
 input[type=text],
 input[type=number] {
     background: none;
@@ -279,13 +260,6 @@ input[type=submit] {
     border: 2px solid transparent;
 }
 
-input[type=submit]:hover,
-input[type=submit]:focus-visible {
-    background: var(--clr-primary);
-    color: var(--clr-secondary);
-    border: 2px solid var(--clr-secondary);
-}
-
 /* Media queries */
 
 @media screen and (width > 600px) {
@@ -320,5 +294,32 @@ input[type=submit]:focus-visible {
         gap: 3rem;
         align-items: center;
         margin-right: 1rem;
+    }
+}
+
+@media (hover: hover) {
+    .book-card:hover,
+    .book-card:focus-visible {
+        background-color: var(--clr-hover);
+    }
+
+    .btn-dark:hover {
+        background: var(--clr-primary);
+        color: var(--clr-secondary);
+        border: 2px solid var(--clr-secondary);
+    }
+
+    .icon-tabler-xbox-x:hover,
+    .icon-tabler-xbox-x:focus-visible,
+    .icon-tabler-edit:hover,
+    .icon-tabler-edit:focus-visible {
+        stroke: var(--clr-accent);
+    }
+
+    input[type=submit]:hover,
+    input[type=submit]:focus-visible {
+        background: var(--clr-primary);
+        color: var(--clr-secondary);
+        border: 2px solid var(--clr-secondary);
     }
 }
